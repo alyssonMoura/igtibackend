@@ -9,6 +9,11 @@ export default (mongoose) => {
     },
     lastModified: { type: Date, default: Date.now },
   });
+  Schema.method("toJSON", function () {
+    const { __v, _id, ...object } = this.toObject();
+    object.id = _id;
+    return object;
+  });
   const Students = mongoose.model("Students", Schema, "Students");
   return Students;
 };
