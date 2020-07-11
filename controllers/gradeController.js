@@ -109,10 +109,8 @@ const remove = async (req, res) => {
 };
 
 const removeAll = async (req, res) => {
-  const id = req.params.id;
-
   try {
-    const data = await Student.deleteMany({ _id: id });
+    const data = await Student.deleteMany({});
     if (!data) {
       res.status(404).send({ message: "Estudante não encontrado" });
     } else {
