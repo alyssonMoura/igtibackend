@@ -25,12 +25,12 @@ const app = express();
 //define o dominio de origem para consumo do servico
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(
-//   cors({
-//     origin: "https://grades-igti-app.herokuapp.com/",
-//   })
-// );
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://grades-igti-app.herokuapp.com/",
+  })
+);
+
 app.use(gradeRouter);
 
 app.get("/", (req, res) => {
